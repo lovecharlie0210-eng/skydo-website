@@ -6,14 +6,15 @@ import Footer from '../components/Footer.astro';
 export interface Props {
   title: string;
   description?: string;
+  lang?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, lang = 'en' } = Astro.props;
 const pageDescription = description || 'Skydo Home — Premium OEM/ODM Furniture Manufacturer from Foshan, China. Specializing in upholstered furniture for global B2B partners.';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -28,10 +29,10 @@ const pageDescription = description || 'Skydo Home — Premium OEM/ODM Furniture
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <Header />
+    <Header lang={lang} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>

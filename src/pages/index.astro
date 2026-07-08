@@ -1,196 +1,44 @@
 ---
-import Layout from '../layouts/Layout.astro';
+const localesStr = JSON.stringify(['en', 'es', 'fr', 'de', 'pt']);
 ---
 
-<Layout title="Premium OEM/ODM Furniture Manufacturer">
-  <!-- ========== Hero ========== -->
-  <section class="relative min-h-screen flex items-center pt-[72px] overflow-hidden bg-sand-50">
-    <div class="absolute inset-0 bg-gradient-to-br from-sand-50 via-white to-sand-100"></div>
-    <div class="absolute top-1/3 right-0 w-[500px] h-[500px] bg-sand-200/40 rounded-full blur-[100px]"></div>
-    <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-walnut-200/20 rounded-full blur-[80px]"></div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>Skydo Home — Premium OEM/ODM Furniture Manufacturer</title>
+    <meta name="description" content="Skydo Home — Premium OEM/ODM Furniture Manufacturer from Foshan, China. Specializing in upholstered furniture for global B2B partners." />
+    <meta name="robots" content="noindex, follow" />
+  </head>
+  <body>
+    <p>Redirecting to your preferred language...</p>
+    <script>
+      (function() {
+        var supported = {localesStr};
+        var saved = localStorage.getItem('skydo-lang');
+        var lang = saved;
 
-    <div class="relative max-w-7xl mx-auto px-6 xl:px-0 py-20 w-full">
-      <div class="max-w-3xl">
-        <div class="accent-line mb-8 animate-scale-in"></div>
-        <p class="text-xs tracking-[0.2em] uppercase text-walnut-600 font-medium animate-fade-in-up">OEM / ODM Furniture Manufacturer</p>
-        <h1 class="mt-5 text-5xl md:text-7xl lg:text-8xl text-walnut-950 leading-[1.05] animate-fade-in-up delay-100">
-          Crafted in<br />
-          <span class="italic text-walnut-500">Foshan.</span>
-        </h1>
-        <p class="mt-6 text-lg text-charcoal-500 leading-relaxed max-w-xl font-light animate-fade-in-up delay-200">
-          Two decades of upholstered furniture craftsmanship. We partner with global brands to design, develop, and deliver exceptional seating solutions.
-        </p>
-        <div class="mt-10 flex flex-wrap gap-4 animate-fade-in-up delay-300">
-          <a href="/contact" class="btn-primary">Send Inquiry</a>
-          <a href="/products" class="btn-outline">Explore Collection</a>
-        </div>
+        if (!lang) {
+          var browserLang = (navigator.language || '').split('-')[0];
+          if (supported.indexOf(browserLang) !== -1) {
+            lang = browserLang;
+          } else {
+            lang = 'en';
+          }
+        }
 
-        <!-- Trust badges -->
-        <div class="mt-16 flex flex-wrap items-center gap-8 animate-fade-in-up delay-400">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-px bg-sand-300"></span>
-            <span class="text-[11px] tracking-wider uppercase text-charcoal-400 font-medium">BSCI</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-px bg-sand-300"></span>
-            <span class="text-[11px] tracking-wider uppercase text-charcoal-400 font-medium">ISO 9001</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-px bg-sand-300"></span>
-            <span class="text-[11px] tracking-wider uppercase text-charcoal-400 font-medium">UL Compliant</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        if (!saved) {
+          try { localStorage.setItem('skydo-lang', lang); } catch(e) {}
+        }
 
-  <!-- ========== Stats ========== -->
-  <section class="relative">
-    <div class="max-w-7xl mx-auto px-6 xl:px-0">
-      <div class="grid grid-cols-2 md:grid-cols-4 border-l border-sand-200">
-        {[
-          { number: '20+', label: 'Years of Expertise' },
-          { number: '500K+', label: 'Units Shipped' },
-          { number: '30+', label: 'Export Markets' },
-          { number: '200+', label: 'Skilled Craftsmen' },
-        ].map((stat) => (
-          <div class="py-14 px-8 border-r border-b border-sand-200 text-center">
-            <p class="text-4xl md:text-5xl font-heading text-walnut-700">{stat.number}</p>
-            <p class="mt-2 text-[11px] tracking-[0.15em] uppercase text-charcoal-400 font-medium">{stat.label}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== Categories ========== -->
-  <section class="py-28 md:py-36">
-    <div class="max-w-7xl mx-auto px-6 xl:px-0">
-      <div class="text-center max-w-xl mx-auto">
-        <div class="accent-line mx-auto"></div>
-        <h2 class="mt-6 text-3xl md:text-5xl text-walnut-950">
-          Upholstered<br />
-          <span class="italic text-walnut-500">Collections</span>
-        </h2>
-        <p class="mt-4 text-sm text-charcoal-500 leading-relaxed font-light">
-          From power lift recliners to custom contract orders — explore our full range of upholstered seating.
-        </p>
-      </div>
-
-      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-5">
-        <!-- Power Lift -->
-        <a href="/products" class="group cursor-pointer no-underline">
-          <div class="aspect-[4/5] img-upload-area flex items-center justify-center">
-            <div class="text-center p-8">
-              <svg class="w-12 h-12 mx-auto text-sand-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25-3.75l-1.5 3.75m9-3.75l1.5 3.75M9 13.5h6" />
-              </svg>
-              <p class="text-xs tracking-[0.2em] uppercase text-walnut-500 font-medium">01</p>
-              <h3 class="mt-3 text-xl md:text-2xl font-heading text-walnut-800 group-hover:text-walnut-600 transition-colors">Power Lift Recliners</h3>
-              <p class="mt-2 text-xs text-charcoal-400 leading-relaxed max-w-xs font-light mx-auto">
-                Dual motor, premium leather, heat & massage. America's #1 bestselling lift chair category.
-              </p>
-              <span class="mt-4 inline-block text-[10px] tracking-wider uppercase text-walnut-400 border border-dashed border-walnut-300 px-3 py-1 rounded-sm">📷 Drop Your Image Here</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Sofas -->
-        <a href="/products" class="group cursor-pointer no-underline">
-          <div class="aspect-[4/5] img-upload-area flex items-center justify-center">
-            <div class="text-center p-8">
-              <svg class="w-12 h-12 mx-auto text-sand-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-              <p class="text-xs tracking-[0.2em] uppercase text-walnut-500 font-medium">02</p>
-              <h3 class="mt-3 text-xl md:text-2xl font-heading text-walnut-800 group-hover:text-walnut-600 transition-colors">Sofas & Sectionals</h3>
-              <p class="mt-2 text-xs text-charcoal-400 leading-relaxed max-w-xs font-light mx-auto">
-                Custom designs in fabric and leather. Built for contract durability and residential comfort.
-              </p>
-              <span class="mt-4 inline-block text-[10px] tracking-wider uppercase text-walnut-400 border border-dashed border-walnut-300 px-3 py-1 rounded-sm">📷 Drop Your Image Here</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Motion -->
-        <a href="/products" class="group cursor-pointer no-underline">
-          <div class="aspect-[4/5] img-upload-area flex items-center justify-center">
-            <div class="text-center p-8">
-              <svg class="w-12 h-12 mx-auto text-sand-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
-              </svg>
-              <p class="text-xs tracking-[0.2em] uppercase text-walnut-500 font-medium">03</p>
-              <h3 class="mt-3 text-xl md:text-2xl font-heading text-walnut-800 group-hover:text-walnut-600 transition-colors">Motion & Swivel</h3>
-              <p class="mt-2 text-xs text-charcoal-400 leading-relaxed max-w-xs font-light mx-auto">
-                Reclining sofas, glider-swivel chairs, zero-gravity mechanisms — comfort engineered for living.
-              </p>
-              <span class="mt-4 inline-block text-[10px] tracking-wider uppercase text-walnut-400 border border-dashed border-walnut-300 px-3 py-1 rounded-sm">📷 Drop Your Image Here</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== Why Skydo Preview ========== -->
-  <section class="py-28 md:py-36 bg-sand-50">
-    <div class="max-w-7xl mx-auto px-6 xl:px-0">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <div class="accent-line"></div>
-          <h2 class="mt-6 text-3xl md:text-5xl text-walnut-950 leading-tight">
-            A Partner,<br />
-            <span class="italic text-walnut-500">Not Just a Supplier</span>
-          </h2>
-          <p class="mt-6 text-sm text-charcoal-500 leading-relaxed font-light">
-            Skydo represents a factory that has supplied China's most respected furniture brands for two decades. We combine manufacturing scale with the agility of a dedicated export team.
-          </p>
-          <ul class="mt-10 space-y-4">
-            {[
-              'Direct factory pricing — no trading company markups',
-              '3-stage quality inspection: raw materials, in-line, pre-shipment',
-              'BSCI, ISO 9001, UL/ETL certified mechanisms',
-              'FOB Guangzhou, flexible MOQ starting from 50 units',
-              'In-house R&D for custom product development',
-            ].map((item) => (
-              <li class="flex items-start gap-3 text-sm text-charcoal-700">
-                <span class="mt-1.5 w-1.5 h-1.5 bg-walnut-400 flex-shrink-0"></span>
-                {item}
-              </li>
-            ))}
-          </ul>
-          <a href="/why-us" class="btn-outline mt-10">Learn More</a>
-        </div>
-        <div class="relative">
-          <div class="aspect-square w-full max-w-md mx-auto img-upload-area flex items-center justify-center">
-            <div class="text-center">
-              <svg class="w-16 h-16 mx-auto text-sand-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-              </svg>
-              <p class="text-sm text-walnut-500 font-medium">📷 Factory Photo</p>
-              <p class="text-xs text-charcoal-400 mt-1">Replace with your factory image</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CTA ========== -->
-  <section class="py-28 md:py-36">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <div class="accent-line mx-auto"></div>
-      <h2 class="mt-6 text-3xl md:text-5xl text-walnut-950 leading-tight">
-        Ready to Work<br />
-        <span class="italic text-walnut-500">With Us?</span>
-      </h2>
-      <p class="mt-6 text-sm text-charcoal-500 leading-relaxed font-light max-w-md mx-auto">
-        Send us your requirements — product type, target market, and volume. We'll respond with a detailed quotation within 24 hours.
-      </p>
-      <div class="mt-10 flex flex-wrap justify-center gap-4">
-        <a href="/contact" class="btn-primary">Submit Your Inquiry</a>
-        <a href="/about" class="btn-outline">View Our Factory</a>
-      </div>
-    </div>
-  </section>
-</Layout>
+        window.location.replace('/' + lang + '/');
+      })();
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=/en/" />
+    </noscript>
+  </body>
+</html>

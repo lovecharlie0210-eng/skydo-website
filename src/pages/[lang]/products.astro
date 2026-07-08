@@ -1,28 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+import { translations } from '../../i18n/translations';
+import { locales } from '../../i18n/languages';
 
-const categories = [
-  { name: 'Power Lift Recliners', desc: 'Dual-motor, genuine leather, heat & massage options. Our best-selling category dominating the US market.', slug: 'power-lift' },
-  { name: 'Sofas & Sectionals', desc: 'Fabric and leather sofas, sectionals, sleeper sofas. Custom sizes, colors, and configurations.', slug: 'sofas' },
-  { name: 'Motion Furniture', desc: 'Reclining sofas, wall-hugger mechanisms, zero-gravity positions. Comfort engineered for daily living.', slug: 'motion' },
-  { name: 'Swivel Rocking Chairs', desc: 'Glider-swivel combinations, smooth motion, upholstered in fabric or bonded leather.', slug: 'swivel' },
-  { name: 'Accent Chairs', desc: 'Club chairs, wingbacks, occasional seating. Perfect for hospitality and residential.', slug: 'accent' },
-  { name: 'Custom OEM', desc: 'Your design, our manufacturing. From concept to container — full product development support.', slug: 'custom' },
-];
+export async function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = translations[lang] || translations.en;
+const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
-<Layout title="Products — Upholstered Furniture">
+<Layout title="Products — Upholstered Furniture" lang={lang}>
   <section class="pt-[120px] pb-20 bg-sand-50/50">
     <div class="max-w-7xl mx-auto px-6 xl:px-0">
       <div class="max-w-2xl">
         <div class="accent-line"></div>
         <h1 class="mt-6 text-4xl md:text-6xl text-walnut-950 leading-tight">
-          Our<br />
-          <span class="italic text-walnut-500">Collection</span>
+          {t.productsPage.heading}<br />
+          <span class="italic text-walnut-500">{t.productsPage.headingItalic}</span>
         </h1>
-        <p class="mt-4 text-sm text-charcoal-500 leading-relaxed font-light max-w-lg">
-          Explore our range of upholstered furniture designed for global B2B markets.
-        </p>
+        <p class="mt-4 text-sm text-charcoal-500 leading-relaxed font-light max-w-lg">{t.productsPage.subtitle}</p>
       </div>
     </div>
   </section>
@@ -30,14 +29,14 @@ const categories = [
   <section class="pb-28">
     <div class="max-w-7xl mx-auto px-6 xl:px-0">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 -mt-8">
-        {categories.map((cat) => (
+        {t.productsPage.categories.map((cat) => (
           <div class="bg-white border border-sand-200 overflow-hidden transition-all duration-300 card-hover">
             <div class="aspect-[4/3] img-upload-area flex items-center justify-center p-8">
               <div class="text-center">
                 <svg class="w-10 h-10 mx-auto text-sand-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                 </svg>
-                <p class="text-xs text-walnut-400 uppercase tracking-wider font-medium">📷 Product Photo</p>
+                <p class="text-xs text-walnut-400 uppercase tracking-wider font-medium">{t.productsPage.placeholder}</p>
               </div>
             </div>
             <div class="p-6">
@@ -54,12 +53,10 @@ const categories = [
     <div class="max-w-3xl mx-auto px-6 text-center">
       <div class="accent-line mx-auto"></div>
       <h2 class="mt-5 text-2xl md:text-4xl text-walnut-950">
-        Need a <span class="italic text-walnut-500">Custom</span> Product?
+        {t.productsPage.ctaHeading} <span class="italic text-walnut-500">{t.productsPage.ctaHeadingItalic}</span> {t.productsPage.ctaHeadingEnd}
       </h2>
-      <p class="mt-4 text-sm text-charcoal-500 font-light">
-        We develop OEM products from your sketches, specs, or samples. Tell us what you need.
-      </p>
-      <a href="/contact" class="btn-primary mt-8">Submit Inquiry</a>
+      <p class="mt-4 text-sm text-charcoal-500 font-light">{t.productsPage.ctaText}</p>
+      <a href={`${prefix}/contact`} class="btn-primary mt-8">{t.productsPage.ctaButton}</a>
     </div>
   </section>
 </Layout>

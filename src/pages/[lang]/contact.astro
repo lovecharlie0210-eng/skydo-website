@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { translations } from '../../i18n/translations';
+import { locales } from '../../i18n/languages';
+
+export async function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = translations[lang] || translations.en;
+---
+
+<Layout title="Contact — Get in Touch" lang={lang}>
+  <section class="pt-[120px] pb-20 bg-sand-50/50">
+    <div class="max-w-7xl mx-auto px-6 xl:px-0">
+      <div class="max-w-2xl">
+        <div class="accent-line"></div>
+        <h1 class="mt-6 text-4xl md:text-6xl text-walnut-950 leading-tight">
+          {t.contactPage.heading}<br />
+          <span class="italic text-walnut-500">{t.contactPage.headingItalic}</span>
+        </h1>
+        <p class="mt-4 text-sm text-charcoal-500 leading-relaxed font-light max-w-lg">{t.contactPage.subtitle}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-28">
+    <div class="max-w-7xl mx-auto px-6 xl:px-0">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+        <!-- Form -->
+        <div class="lg:col-span-3">
+          <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-5">
+            <!-- ⚠️ IMPORTANT: Replace "your-form-id" with your actual Formspree ID -->
+            <input type="hidden" name="_subject" value="Skydo Website Inquiry" />
+            <input type="text" name="_gotcha" style="display:none" />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label for="name" class="block text-[11px] tracking-[0.15em] uppercase text-charcoal-500 font-medium mb-2">{t.contactPage.form.nameLabel}</label>
+                <input type="text" id="name" name="name" required class="w-full bg-white border border-sand-300 px-4 py-3 text-sm text-charcoal-800 placeholder-charcoal-400 focus:outline-none focus:border-walnut-400 transition-colors" placeholder={t.contactPage.form.namePlaceholder} />
+              </div>
+              <div>
+                <label for="company" class="block text-[11px] tracking-[0.15em] uppercase text-charcoal-500 font-medium mb-2">{t.contactPage.form.companyLabel}</label>
+                <input type="text" id="company" name="company" required class="w-full bg-white border border-sand-300 px-4 py-3 text-sm text-charcoal-800 placeholder-charcoal-400 focus:outline-none focus:border-walnut-400 transition-colors" placeholder={t.contactPage.form.companyPlaceholder} />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label for="email" class="block text-[11px] tracking-[0.15em] uppercase text-charcoal-500 font-medium mb-2">{t.contactPage.form.emailLabel}</label>
+                <input type="email" id="email" name="email" required class="w-full bg-white border border-sand-300 px-4 py-3 text-sm text-charcoal-800 placeholder-charcoal-400 focus:outline-none focus:border-walnut-400 transition-colors" placeholder={t.contactPage.form.emailPlaceholder} />
+              </div>
+              <div>
+                <label for="phone" class="block text-[11px] tracking-[0.15em] uppercase text-charcoal-500 font-medium mb-2">{t.contactPage.form.phoneLabel}</label>
+                <input type="text" id="phone" name="phone" class="w-full bg-white border border-sand-300 px-4 py-3 text-sm text-charcoal-800 placeholder-charcoal-400 focus:outline-none focus:border-walnut-400 transition-colors" placeholder={t.contactPage.form.phonePlaceholder} />
+              </div>
+            </div>
+            <div>
+              <label for="product" class="block text-[11px] tracking-[0.15em] uppercase text-charcoal-500 font-medium mb-2">{t.contactPage.form.productLabel}</label>
+              <select id="product" name="product" required class="w-full bg-white border border-sand-300 px-4 py-3 text-sm text-charcoal-600 focus:outline-none focus:border-walnut-400 transition-colors">
+                <option value="" disabled selected>{t.contactPage.form.productPlaceholder}</option>
+                {t.contactPage.form.productOptions.map((opt) => (
+                  <option value={opt.value}>{opt.label}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label for="message" class="block text-[11px] tracking-[0.15em] uppercase text-charcoal-500 font-medium mb-2">{t.contactPage.form.messageLabel}</label>
+              <textarea id="message" name="message" rows="5" required class="w-full bg-white border border-sand-300 px-4 py-3 text-sm text-charcoal-800 placeholder-charcoal-400 focus:outline-none focus:border-walnut-400 transition-colors resize-none" placeholder={t.contactPage.form.messagePlaceholder}></textarea>
+            </div>
+            <button type="submit" class="btn-primary">
+              {t.contactPage.form.submit}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="lg:col-span-2">
+          <div class="bg-sand-50 border border-sand-200 p-8 space-y-8">
+            <div>
+              <h3 class="text-[11px] tracking-[0.2em] uppercase text-walnut-700 font-semibold mb-5">{t.contactPage.sidebar.title}</h3>
+              <div class="space-y-5 text-sm text-charcoal-600 font-light">
+                <div>
+                  <p class="text-charcoal-800 font-medium">{t.contactPage.sidebar.company}</p>
+                  <p>{t.contactPage.sidebar.location}</p>
+                </div>
+                <div>
+                  <p class="text-[10px] tracking-[0.15em] uppercase text-charcoal-400 font-semibold mb-1">{t.nav.contact}</p>
+                  <a href="mailto:{t.contactPage.sidebar.email}" class="text-walnut-700 no-underline hover:text-walnut-600 transition-colors">{t.contactPage.sidebar.email}</a>
+                </div>
+                <div>
+                  <p class="text-[10px] tracking-[0.15em] uppercase text-charcoal-400 font-semibold mb-1">{t.contactPage.form.phoneLabel}</p>
+                  <a href="tel:{t.contactPage.sidebar.phone}" class="text-charcoal-700 no-underline hover:text-walnut-600 transition-colors">{t.contactPage.sidebar.phone}</a>
+                </div>
+              </div>
+            </div>
+            <div class="pt-6 border-t border-sand-200">
+              <h3 class="text-[11px] tracking-[0.2em] uppercase text-walnut-700 font-semibold mb-4">{t.contactPage.sidebar.tipsTitle}</h3>
+              <ul class="space-y-3 text-sm text-charcoal-500 font-light">
+                {t.contactPage.sidebar.tips.map((tip) => (
+                  <li class="flex items-start gap-2">
+                    <span class="w-1 h-1 bg-walnut-300 mt-2 flex-shrink-0"></span>
+                    {tip}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
