@@ -63,9 +63,10 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.15;
 }
 
-h1 { font-weight: 400; }
-h2 { font-weight: 400; }
-h3 { font-weight: 400; }
+/* ====== Body text maximum width for readability ====== */
+.prose-max {
+  max-width: 65ch;
+}
 
 ::selection {
   background-color: var(--color-walnut-600);
@@ -234,4 +235,36 @@ h3 { font-weight: 400; }
 /* ====== Product image placeholder styling ====== */
 .product-image-area {
   background: linear-gradient(135deg, var(--color-sand-100), #f0e8dd);
+  position: relative;
+}
+
+/* ====== Image Upload Prompt ====== */
+.img-upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, var(--color-sand-100), var(--color-sand-200));
+  border: 2px dashed var(--color-sand-300);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.img-upload-area:hover {
+  border-color: var(--color-walnut-400);
+  background: linear-gradient(135deg, var(--color-sand-50), var(--color-sand-100));
+}
+
+/* ====== Consistent page header ====== */
+.page-header {
+  padding-top: 120px;
+  padding-bottom: 5rem;
+  background-color: var(--color-sand-50);
+}
+@media (max-width: 768px) {
+  .page-header {
+    padding-top: 96px;
+    padding-bottom: 3rem;
+  }
 }
