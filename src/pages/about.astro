@@ -2,59 +2,55 @@
 import Layout from '../layouts/Layout.astro';
 
 const timeline = [
-  { year: '2005', event: 'Factory founded in Foshan, specializing in upholstered furniture production.' },
-  { year: '2010', event: 'Became OEM partner for Kuka (Man Wah Holdings), China\'s largest sofa manufacturer.' },
-  { year: '2015', event: 'Expanded production lines — added motion furniture and power mechanisms.' },
-  { year: '2018', event: 'Began exporting to North American and European markets.' },
-  { year: '2020', event: 'Launched Skydo brand for direct B2B partnerships. BSCI certification achieved.' },
-  { year: '2024', event: 'Strategic pivot to power lift recliner specialization. 500K+ cumulative units shipped.' },
+  { year: '2005', event: 'Factory founded in Foshan, specializing in upholstered furniture production for the domestic market.' },
+  { year: '2010', event: 'Became OEM partner for Kuka (formerly Man Wah Holdings), China\'s largest publicly traded furniture manufacturer.' },
+  { year: '2015', event: 'Expanded production with dedicated motion furniture and power mechanism assembly lines.' },
+  { year: '2018', event: 'Launched export operations to North American and European B2B partners.' },
+  { year: '2020', event: 'Skydo brand established for direct B2B OEM/ODM partnerships. BSCI certification achieved.' },
+  { year: '2024', event: 'Strategic focus on power lift recliner specialization. Surpassed 500,000 cumulative units shipped globally.' },
 ];
 
-const certs = ['BSCI', 'ISO 9001', 'UL/ETL Listed Mechanisms', 'CA Prop 65 Compliant', 'FSC Certified Packaging'];
+const certs = ['BSCI', 'ISO 9001', 'UL/ETL Mechanisms', 'CA Prop 65', 'FSC Packaging'];
 ---
 
-<Layout title="About — Our Factory & Story">
-  <!-- Hero -->
-  <section class="relative pt-32 pb-16 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-charcoal-950 via-charcoal-950 to-charcoal-900"></div>
-    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-brass-500/5 rounded-full blur-[120px]"></div>
-    <div class="relative max-w-7xl mx-auto px-6">
+<Layout title="About — Our Factory">
+  <section class="pt-[120px] pb-20 bg-sand-50/50">
+    <div class="max-w-7xl mx-auto px-6 xl:px-0">
       <div class="max-w-2xl">
-        <p class="text-xs tracking-[0.25em] uppercase text-brass-400 font-semibold">About Us</p>
-        <h1 class="mt-4 text-4xl md:text-6xl font-heading font-bold text-charcoal-100 leading-tight">
+        <div class="accent-line"></div>
+        <h1 class="mt-6 text-4xl md:text-6xl text-walnut-950 leading-tight">
           From Foshan,<br />
-          <span class="italic text-brass-400">To the World</span>
+          <span class="italic text-walnut-500">To the World</span>
         </h1>
       </div>
     </div>
   </section>
 
-  <!-- Story -->
-  <section class="relative pb-24">
-    <div class="max-w-7xl mx-auto px-6">
+  <section class="pb-28">
+    <div class="max-w-7xl mx-auto px-6 xl:px-0">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
-          <h2 class="text-2xl font-heading font-bold text-charcoal-100">
+          <h2 class="text-2xl md:text-4xl font-heading text-walnut-950">
             A Legacy of<br />
-            <span class="italic text-brass-400">Craftsmanship</span>
+            <span class="italic text-walnut-500">Craftsmanship</span>
           </h2>
-          <div class="mt-6 space-y-4 text-sm text-charcoal-400 leading-relaxed">
+          <div class="mt-6 space-y-4 text-sm text-charcoal-500 leading-relaxed font-light">
             <p>
-              Skydo is the B2B export arm of a factory with deep roots in Foshan, Guangdong — the furniture manufacturing capital of China. For two decades, our production lines have supplied top domestic brands and global buyers alike.
+              Skydo is the B2B export division of a Foshan-based factory with two decades of furniture manufacturing heritage. Our production lines have supplied China's top furniture brands and served international buyers across 30+ countries.
             </p>
             <p>
-              Our factory floor spans automated cutting, precision framing, CNC machining, professional upholstery, and multi-stage quality inspection. We produce over 50,000 units annually, with capacity to scale for large B2B partners.
+              Our facility features automated fabric cutting, precision framing, professional upholstery workstations, and a multi-stage quality inspection system. With an annual output exceeding 50,000 units, we are equipped to scale with your business.
             </p>
             <p>
-              What sets us apart: we don't just build to spec — we bring design insight, material expertise, and market knowledge to every OEM/ODM partnership.
+              What distinguishes us: we don't just manufacture to specification — we contribute design insight, material expertise, and market intelligence to every OEM/ODM partnership.
             </p>
           </div>
         </div>
         <div class="relative">
-          <div class="aspect-[4/3] bg-gradient-to-br from-charcoal-800 to-charcoal-900 rounded-sm flex items-center justify-center border border-charcoal-800/50">
+          <div class="aspect-[4/3] product-image-area flex items-center justify-center">
             <div class="text-center">
-              <span class="text-8xl font-heading font-bold text-brass-400/20">S</span>
-              <p class="text-xs text-charcoal-600 mt-2">[ Factory Image Placeholder ]</p>
+              <span class="text-8xl font-heading text-walnut-200/50">S</span>
+              <p class="text-xs text-charcoal-400 mt-2 font-medium">[ Factory Image ]</p>
             </div>
           </div>
         </div>
@@ -62,22 +58,24 @@ const certs = ['BSCI', 'ISO 9001', 'UL/ETL Listed Mechanisms', 'CA Prop 65 Compl
     </div>
   </section>
 
-  <!-- Timeline -->
-  <section class="relative py-24 bg-charcoal-900/50">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl md:text-4xl font-heading font-bold text-charcoal-100 text-center">
-        Our <span class="italic text-brass-400">Journey</span>
-      </h2>
-      <div class="mt-12 space-y-0">
+  <section class="py-24 bg-sand-50">
+    <div class="max-w-4xl mx-auto px-6 xl:px-0">
+      <div class="text-center">
+        <div class="accent-line mx-auto"></div>
+        <h2 class="mt-5 text-2xl md:text-4xl font-heading text-walnut-950">
+          Our <span class="italic text-walnut-500">Journey</span>
+        </h2>
+      </div>
+      <div class="mt-14">
         {timeline.map((item, i) => (
-          <div class="flex gap-6 group">
+          <div class="flex gap-6">
             <div class="flex flex-col items-center">
-              <div class="w-3 h-3 rounded-full bg-brass-500 mt-1.5"></div>
-              {i < timeline.length - 1 && <div class="w-px flex-1 bg-charcoal-800 group-last:hidden"></div>}
+              <div class="w-3 h-3 rounded-full border-2 border-walnut-400 bg-white mt-1"></div>
+              {i < timeline.length - 1 && <div class="w-px flex-1 bg-sand-200"></div>}
             </div>
-            <div class="pb-8">
-              <span class="text-xs tracking-wider uppercase text-brass-400 font-semibold">{item.year}</span>
-              <p class="mt-1 text-sm text-charcoal-400 leading-relaxed">{item.event}</p>
+            <div class="pb-10">
+              <span class="text-xs tracking-[0.15em] uppercase text-walnut-600 font-semibold">{item.year}</span>
+              <p class="mt-1.5 text-sm text-charcoal-600 leading-relaxed font-light">{item.event}</p>
             </div>
           </div>
         ))}
@@ -85,16 +83,16 @@ const certs = ['BSCI', 'ISO 9001', 'UL/ETL Listed Mechanisms', 'CA Prop 65 Compl
     </div>
   </section>
 
-  <!-- Certifications -->
-  <section class="relative py-24">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-2xl md:text-4xl font-heading font-bold text-charcoal-100">
-        Certifications & <span class="italic text-brass-400">Compliance</span>
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-6 xl:px-0 text-center">
+      <div class="accent-line mx-auto"></div>
+      <h2 class="mt-5 text-2xl md:text-4xl font-heading text-walnut-950">
+        Certifications & <span class="italic text-walnut-500">Compliance</span>
       </h2>
-      <p class="mt-4 text-sm text-charcoal-400 mb-10">We meet international standards for safety, quality, and social compliance.</p>
-      <div class="flex flex-wrap justify-center gap-4">
+      <p class="mt-3 text-sm text-charcoal-500 font-light mb-10">Meeting international standards for safety, quality, and social responsibility.</p>
+      <div class="flex flex-wrap justify-center gap-3">
         {certs.map((cert) => (
-          <span class="px-5 py-2.5 border border-charcoal-700 text-sm text-charcoal-300 bg-charcoal-900/50">{cert}</span>
+          <span class="px-5 py-2.5 border border-sand-300 text-xs text-charcoal-600 bg-sand-50 tracking-wider font-medium">{cert}</span>
         ))}
       </div>
     </div>

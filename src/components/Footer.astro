@@ -2,55 +2,58 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-charcoal-900 border-t border-charcoal-800/50">
-  <div class="max-w-7xl mx-auto px-6 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+<footer class="bg-walnut-950 text-sand-200">
+  <div class="max-w-7xl mx-auto px-6 xl:px-0 py-20">
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-12">
       <!-- Brand -->
-      <div class="md:col-span-1">
-        <span class="text-2xl font-heading font-bold text-brass-400">SKYDO</span>
-        <p class="mt-4 text-sm text-charcoal-400 leading-relaxed max-w-xs">
-          Premium OEM/ODM furniture manufacturer based in Foshan, China. Crafting quality upholstered furniture for global B2B partners.
+      <div class="md:col-span-2">
+        <span class="text-2xl font-heading text-sand-300 font-medium">Skydo</span>
+        <p class="mt-4 text-sm text-sand-400 leading-relaxed max-w-xs font-light">
+          Premium OEM/ODM furniture manufacturer based in Foshan, China. Partnering with global brands for over two decades.
         </p>
       </div>
 
       <!-- Quick Links -->
       <div>
-        <h4 class="text-xs tracking-[0.15em] uppercase text-brass-400 font-semibold mb-4">Quick Links</h4>
-        <div class="flex flex-col gap-2.5">
-          <a href="/" class="text-sm text-charcoal-400 no-underline hover:text-brass-300 transition-colors">Home</a>
-          <a href="/products" class="text-sm text-charcoal-400 no-underline hover:text-brass-300 transition-colors">Products</a>
-          <a href="/about" class="text-sm text-charcoal-400 no-underline hover:text-brass-300 transition-colors">About Us</a>
-          <a href="/why-us" class="text-sm text-charcoal-400 no-underline hover:text-brass-300 transition-colors">Why Skydo</a>
-          <a href="/contact" class="text-sm text-charcoal-400 no-underline hover:text-brass-300 transition-colors">Contact</a>
+        <h4 class="text-[10px] tracking-[0.2em] uppercase text-sand-500 font-semibold mb-5">Quick Links</h4>
+        <div class="flex flex-col gap-3">
+          {[
+            { href: '/', label: 'Home' },
+            { href: '/products', label: 'Products' },
+            { href: '/about', label: 'About' },
+            { href: '/why-us', label: 'Why Skydo' },
+            { href: '/contact', label: 'Contact' },
+          ].map((link) => (
+            <a href={link.href} class="text-sm text-sand-400 no-underline hover:text-sand-200 transition-colors font-light">{link.label}</a>
+          ))}
         </div>
       </div>
 
-      <!-- Products -->
+      <!-- Categories -->
       <div>
-        <h4 class="text-xs tracking-[0.15em] uppercase text-brass-400 font-semibold mb-4">Products</h4>
-        <div class="flex flex-col gap-2.5">
-          <a href="/products" class="text-sm text-charcoal-400 no-underline hover:text-brass-300 transition-colors">Power Lift Recliners</a>
-          <a href="/products" class="text-sm text-charcoal-400 no-underline hover:text-brass-300 transition-colors">Sofas & Sectionals</a>
-          <a href="/products" class="text-sm text-charcoal-400 no-underline hover:text-brass-300 transition-colors">Motion Furniture</a>
-          <a href="/products" class="text-sm text-charcoal-400 no-underline hover:text-brass-300 transition-colors">Swivel Rocking Chairs</a>
+        <h4 class="text-[10px] tracking-[0.2em] uppercase text-sand-500 font-semibold mb-5">Categories</h4>
+        <div class="flex flex-col gap-3">
+          {['Power Lift Recliners', 'Sofas & Sectionals', 'Motion Furniture', 'Swivel Chairs', 'Custom OEM'].map((cat) => (
+            <a href="/products" class="text-sm text-sand-400 no-underline hover:text-sand-200 transition-colors font-light">{cat}</a>
+          ))}
         </div>
       </div>
 
       <!-- Contact -->
       <div>
-        <h4 class="text-xs tracking-[0.15em] uppercase text-brass-400 font-semibold mb-4">Contact</h4>
-        <div class="flex flex-col gap-2.5 text-sm text-charcoal-400">
-          <span>Saikodu (Foshan) Trading Co., Ltd</span>
-          <span>Foshan, Guangdong, China</span>
-          <a href="mailto:info@skydohome.com" class="no-underline text-charcoal-400 hover:text-brass-300 transition-colors">info@skydohome.com</a>
-          <a href="tel:+861234567890" class="no-underline text-charcoal-400 hover:text-brass-300 transition-colors">+86 123 4567 890</a>
+        <h4 class="text-[10px] tracking-[0.2em] uppercase text-sand-500 font-semibold mb-5">Contact</h4>
+        <div class="flex flex-col gap-3 text-sm text-sand-400 font-light">
+          <p>Saikodu (Foshan) Trading Co.</p>
+          <p>Foshan, Guangdong, China</p>
+          <a href="mailto:info@skydohome.com" class="no-underline text-sand-400 hover:text-sand-200 transition-colors">info@skydohome.com</a>
+          <a href="tel:+861234567890" class="no-underline text-sand-400 hover:text-sand-200 transition-colors">+86 123 4567 890</a>
         </div>
       </div>
     </div>
 
-    <div class="mt-12 pt-8 border-t border-charcoal-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-charcoal-600">
+    <div class="mt-16 pt-8 border-t border-walnut-800/50 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-sand-600 font-light">
       <span>&copy; {year} Skydo Home. All rights reserved.</span>
-      <span>OEM/ODM inquiries welcome</span>
+      <span>OEM / ODM inquiries welcome</span>
     </div>
   </div>
 </footer>
