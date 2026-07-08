@@ -1,39 +1,12 @@
----
-import { locales } from '../i18n/languages';
----
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <title>Skydo Home — Premium OEM/ODM Furniture Manufacturer</title>
-    <meta name="description" content="Skydo Home — Premium OEM/ODM Furniture Manufacturer from Foshan, China. Specializing in upholstered furniture for global B2B partners." />
-    <meta name="robots" content="noindex, follow" />
     <meta http-equiv="refresh" content="0;url=/en/" />
+    <title>Skydo Home — Premium OEM/ODM Furniture Manufacturer</title>
   </head>
   <body>
-    <p>Redirecting to English version...</p>
-    <script define:vars={{ locales }}>
-      (function() {
-        var saved = localStorage.getItem('skydo-lang');
-        var lang = saved;
-
-        if (!lang) {
-          var browserLang = (navigator.language || '').split('-')[0];
-          lang = locales.indexOf(browserLang) !== -1 ? browserLang : 'en';
-        }
-
-        if (!saved) {
-          try { localStorage.setItem('skydo-lang', lang); } catch(e) {}
-        }
-
-        if (lang !== 'en') {
-          window.location.replace('/' + lang + '/');
-        }
-      })();
-    </script>
+    <p><a href="/en/">Enter Skydo Home</a></p>
   </body>
 </html>
