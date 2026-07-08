@@ -1,5 +1,5 @@
 ---
-const localesStr = JSON.stringify(['en', 'es', 'fr', 'de', 'pt']);
+import { locales } from '../i18n/languages';
 ---
 
 <!doctype html>
@@ -15,9 +15,9 @@ const localesStr = JSON.stringify(['en', 'es', 'fr', 'de', 'pt']);
   </head>
   <body>
     <p>Redirecting to your preferred language...</p>
-    <script>
+    <script define:vars={{ locales }}>
       (function() {
-        var supported = {localesStr};
+        var supported = locales;
         var saved = localStorage.getItem('skydo-lang');
         var lang = saved;
 
