@@ -12,33 +12,28 @@ import { locales } from '../i18n/languages';
     <title>Skydo Home — Premium OEM/ODM Furniture Manufacturer</title>
     <meta name="description" content="Skydo Home — Premium OEM/ODM Furniture Manufacturer from Foshan, China. Specializing in upholstered furniture for global B2B partners." />
     <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content="0;url=/en/" />
   </head>
   <body>
-    <p>Redirecting to your preferred language...</p>
+    <p>Redirecting to English version...</p>
     <script define:vars={{ locales }}>
       (function() {
-        var supported = locales;
         var saved = localStorage.getItem('skydo-lang');
         var lang = saved;
 
         if (!lang) {
           var browserLang = (navigator.language || '').split('-')[0];
-          if (supported.indexOf(browserLang) !== -1) {
-            lang = browserLang;
-          } else {
-            lang = 'en';
-          }
+          lang = locales.indexOf(browserLang) !== -1 ? browserLang : 'en';
         }
 
         if (!saved) {
           try { localStorage.setItem('skydo-lang', lang); } catch(e) {}
         }
 
-        window.location.replace('/' + lang + '/');
+        if (lang !== 'en') {
+          window.location.replace('/' + lang + '/');
+        }
       })();
     </script>
-    <noscript>
-      <meta http-equiv="refresh" content="0;url=/en/" />
-    </noscript>
   </body>
 </html>
