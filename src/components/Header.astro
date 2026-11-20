@@ -9,7 +9,7 @@ export interface Props {
 
 const { lang = 'en' } = Astro.props;
 const t = translations[lang] || translations.en;
-const linkPrefix = lang === 'en' ? '' : `/${lang}`;
+const linkPrefix = `/${lang}`;
 
 const navLinks = [
   { href: `${linkPrefix}/`, label: t.nav.home },
