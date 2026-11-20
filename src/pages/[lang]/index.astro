@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 const t = translations[lang] || translations.en;
-const prefix = lang === 'en' ? '' : `/${lang}`;
+const prefix = `/${lang}`;
 ---
 
 <Layout title="Premium OEM/ODM Furniture Manufacturer" lang={lang}>
