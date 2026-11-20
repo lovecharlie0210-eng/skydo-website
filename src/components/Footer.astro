@@ -8,7 +8,7 @@ export interface Props {
 const { lang = 'en' } = Astro.props;
 const t = translations[lang] || translations.en;
 const year = new Date().getFullYear();
-const prefix = lang === 'en' ? '' : `/${lang}`;
+const prefix = `/${lang}`;
 ---
 
 <footer class="bg-walnut-950 text-sand-200">
